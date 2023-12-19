@@ -28,6 +28,9 @@ def get_ltp_option(symbol):
 
     return first_buy_price
 
+def flhgdifjjernf()
+    pass
+
 #
 #
 # def get_historical_data(sym, exp, timeframe, strategy_tag, type, strike, RSIPeriod, MAOFOI, MAOFVOl):
