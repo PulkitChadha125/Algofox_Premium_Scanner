@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="55427066-294d-4d6c-bffa-08fd5c140ef4" name="Changes" comment="This scanner calculates premium combined of atm all and put , ltp, percentage of ltp ,PREMIUM_COLLECTED to purchase those ce and pe" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2ZZmAqmIFzJMRYhP2EtdXtnfONu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.scanner.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/Desktop/python projects/Algofox Premium Scanner"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-7a29c1521ef0-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.11799.298" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="55427066-294d-4d6c-bffa-08fd5c140ef4" name="Changes" comment="" />
+      <created>1702637835322</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702637835322</updated>
+    </task>
+    <task id="LOCAL-00001" summary="This scanner calculates premium combined of atm all and put , ltp, percentage of ltp ,PREMIUM_COLLECTED to purchase those ce and pe">
+      <option name="closed" value="true" />
+      <created>1702888381343</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702888381343</updated>
+    </task>
+    <task id="LOCAL-00002" summary="This scanner calculates premium combined of atm all and put , ltp, percentage of ltp ,PREMIUM_COLLECTED to purchase those ce and pe">
+      <option name="closed" value="true" />
+      <created>1702888394351</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702888394351</updated>
+    </task>
+    <task id="LOCAL-00003" summary="This scanner calculates premium combined of atm all and put , ltp, percentage of ltp ,PREMIUM_COLLECTED to purchase those ce and pe">
+      <option name="closed" value="true" />
+      <created>1702888463323</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702888463323</updated>
+    </task>
+    <task id="LOCAL-00004" summary="This scanner calculates premium combined of atm all and put , ltp, percentage of ltp ,PREMIUM_COLLECTED to purchase those ce and pe">
+      <option name="closed" value="true" />
+      <created>1702888485195</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702888485195</updated>
+    </task>
+    <task id="LOCAL-00005" summary="This scanner calculates premium combined of atm all and put , ltp, percentage of ltp ,PREMIUM_COLLECTED to purchase those ce and pe">
+      <option name="closed" value="true" />
+      <created>1702888507222</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702888507222</updated>
+    </task>
+    <task id="LOCAL-00006" summary="This scanner calculates premium combined of atm all and put , ltp, percentage of ltp ,PREMIUM_COLLECTED to purchase those ce and pe">
+      <option name="closed" value="true" />
+      <created>1702888516498</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702888516498</updated>
+    </task>
+    <task id="LOCAL-00007" summary="This scanner calculates premium combined of atm all and put , ltp, percentage of ltp ,PREMIUM_COLLECTED to purchase those ce and pe">
+      <option name="closed" value="true" />
+      <created>1702890039752</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702890039752</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="This scanner calculates premium combined of atm all and put , ltp, percentage of ltp ,PREMIUM_COLLECTED to purchase those ce and pe" />
+    <option name="LAST_COMMIT_MESSAGE" value="This scanner calculates premium combined of atm all and put , ltp, percentage of ltp ,PREMIUM_COLLECTED to purchase those ce and pe" />
+  </component>
+</project>
