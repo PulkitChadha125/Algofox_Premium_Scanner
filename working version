@@ -1,0 +1,19 @@
+gf = pd.read_csv('premium_combined_data.csv')
+
+
+        # Transpose the DataFrame and set 'Date' as index
+        gf = gf.set_index('Date').T
+
+        # Sort index (Date) in descending order
+        gf = gf.sort_index(ascending=False)
+
+        # Reset index to get 'Symbol' as a column
+        gf = gf.reset_index()
+
+        # Rename the 'index' column to 'Symbol'
+        gf = gf.rename(columns={'index': 'Symbol'})
+
+        df = df.drop(columns='NFO Trading Symbol')
+
+        # Save the modified DataFrame back to a CSV file
+        gf.to_csv('restructured_data.csv', index=False)
