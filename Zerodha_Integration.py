@@ -16,6 +16,7 @@ def login(user_id,password,twofa):
 
 def get_historical_data(instrument_token):
     global kite
+
     from_datetime = datetime.now() - timedelta(days=13)  # From last 1 day
     to_datetime = datetime.now()
 
@@ -43,19 +44,26 @@ def get_historical_data_combined_scanner(instrument_token, date, days):
 
 def get_historical_data_combined(instrument_token, date):
     global kite
-    from_datetime = datetime.now() - timedelta(days=13)  # From last 13 days
-    to_datetime = datetime.now()
-    res = kite.historical_data(instrument_token, from_datetime, to_datetime, "day", continuous=False, oi=False)
-    price_data = pd.DataFrame(res)
-    price_data = price_data[['date', 'close']]
-    price_data['date'] = pd.to_datetime(price_data['date']).dt.strftime('%Y-%m-%d')
+    try:
+        from_datetime = datetime.now() - timedelta(days=13)  # From last 13 days
+        to_datetime = datetime.now()
+        res = kite.historical_data(instrument_token, from_datetime, to_datetime, "day", continuous=False, oi=False)
+        price_data = pd.DataFrame(res)
 
-    filtered_data = price_data[price_data['date'] == date]
+        price_data = price_data[['date', 'close']]
+        price_data['date'] = pd.to_datetime(price_data['date']).dt.strftime('%Y-%m-%d')
 
-    datevalue=filtered_data['date'].iloc[0] if not filtered_data.empty else None
-    close_price = filtered_data['close'].iloc[0] if not filtered_data.empty else None
+        filtered_data = price_data[price_data['date'] == date]
 
-    return close_price
+        datevalue=filtered_data['date'].iloc[0] if not filtered_data.empty else None
+        close_price = filtered_data['close'].iloc[0] if not filtered_data.empty else None
+
+        return close_price
+    except (IndexError, KeyError) as e:
+        print(f"Error: {e}")
+        close_price=0
+        return close_price
+
 
 
 

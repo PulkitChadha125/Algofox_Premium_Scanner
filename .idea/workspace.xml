@@ -5,14 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55427066-294d-4d6c-bffa-08fd5c140ef4" name="Changes" comment="This scanner calculates premium combined of atm all and put , ltp, percentage of ltp ,PREMIUM_COLLECTED to purchase those ce and pe">
-      <change afterPath="$PROJECT_DIR$/FetchHistory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/working version" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FetchHistory.py" beforeDir="false" afterPath="$PROJECT_DIR$/FetchHistory.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Instruments.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Instruments.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniqueInstrumentsnfo.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ZerodhaCredentials.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ZerodhaCredentials.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zerodha_Integration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Zerodha_Integration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scanner/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scanner/Analysis-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scanner/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scanner/EXE-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scanner/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/scanner/PKG-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scanner/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/build/scanner/PYZ-00.pyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scanner/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/scanner/base_library.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scanner/scanner.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/scanner/scanner.pkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_result.csv" beforeDir="false" afterPath="$PROJECT_DIR$/final_result.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/premium_combined_pivoted_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/premium_combined_pivoted_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyinstaller.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pyinstaller.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scanner.exe" beforeDir="false" afterPath="$PROJECT_DIR$/scanner.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scanner.py" beforeDir="false" afterPath="$PROJECT_DIR$/scanner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webdata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/working version" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

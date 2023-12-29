@@ -1,1 +1,4 @@
 pyinstaller --onefile --add-data "Instruments.csv;." --add-data "kite_trade.py;." --add-data "Zerodha_Integration.py;." scanner.py
+
+
+pyinstaller --onefile --add-data "Instruments.csv;." --add-data "kite_trade.py;." --add-data "Zerodha_Integration.py;." FetchHistory.py

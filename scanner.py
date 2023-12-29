@@ -250,24 +250,60 @@ def get_symbol_data():
             if columns_to_drop:
                 gf = gf.drop(columns=columns_to_drop)
             #  merging database
+            if formatted_yesterday_date_string in gf.columns:
+                gf = gf.drop(columns=formatted_yesterday_date_string)
+            if 'Unnamed: 0' in gf.columns:
+                gf = gf.drop(columns='Unnamed: 0')
+
+
+            if "Trading Symbol" in gf.columns:
+                gf = gf.drop(columns="Trading Symbol")
+
+            atm_ce_and_pe_col = df.pop(formatted_yesterday_date_string)
+            df[formatted_yesterday_date_string] = atm_ce_and_pe_col  # Move 'ATM_CE_AND_PE' to the last position
+
+
+            print("df column", df.columns)
+
             merged_df = pd.merge(df, gf, left_on='Trading Symbol', right_on='Symbol', how='left')
-            final_result = pd.concat([merged_df['ATM_CE_AND_PE'], merged_df.drop(columns='ATM_CE_AND_PE')], axis=1)
-            tpp = pd.read_csv('premium_combined_pivoted_data.csv')
-            merged_df_tom = pd.merge(tpp, df[['Trading Symbol', formatted_yesterday_date_string]], left_on='Symbol',
-                                     right_on='Trading Symbol', how='left')
+            if 'Unnamed: 0' in gf.columns:
+                merged_df = merged_df.drop(columns='Unnamed: 0')
+            print("merged_df column", merged_df.columns)
+
+            merged_df.to_csv('final_result.csv', index=False)
+
+            gf = pd.read_csv('premium_combined_pivoted_data.csv')
+            print("gf column", gf.columns)
+            if formatted_yesterday_date_string in gf.columns:
+                gf = gf.drop(columns=formatted_yesterday_date_string)
+            merged_df_tom = pd.merge(gf, df[['Trading Symbol', formatted_yesterday_date_string]], left_on='Symbol',
+                                                                   right_on='Trading Symbol', how='left')
+            if "Trading Symbol" in merged_df_tom.columns:
+                merged_df_tom = merged_df_tom.drop(columns="Trading Symbol")
+
+
+            print("merged_df_tom: ", merged_df_tom.columns)
+
+
+
 
             cols = list(merged_df_tom.columns)
-            cols.remove(formatted_yesterday_date_string)
-            cols.insert(0, formatted_yesterday_date_string)
+            try:
+                cols.remove(formatted_yesterday_date_string)
+            except ValueError:
+                pass  # If the column is not found, proceed without removing
 
+            cols.append(formatted_yesterday_date_string)  # Add the column at the end if it wasn't removed
             merged_df_tom = merged_df_tom[cols]
+            print("merged_df_tom: ", merged_df_tom.columns)
 
-            merged_df_tom.to_csv('premium_combined_pivoted_data.csv', index=False)
-            
-            if 'Unnamed: 0' in df.columns:
-                final_result = final_result.drop(columns='Unnamed: 0')
+            # Check if "Trading Symbol" exists before attempting to drop it
 
-            final_result.to_csv('final_result.csv', index=False)
+
+            merged_df_tom.to_csv("premium_combined_pivoted_data.csv")
+
+
+
 
         final_data = pd.read_csv('final_result.csv')
         column_order = ['NFO Trading Symbol', 'Trading Symbol', 'Lotsize', 'LTP', 'PERCENTAGEOF_LTP',

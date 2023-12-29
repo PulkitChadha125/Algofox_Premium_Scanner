@@ -10,7 +10,7 @@ from flask import Flask, render_template
 lock = threading.Lock()
 import os
 import sys
-
+import traceback
 
 def get_zerodha_credentials():
 
@@ -122,47 +122,52 @@ def get_atm_combined_10_days():
             instrument_token = matching_row.iloc[0]["instrument_token"]
             historical_data = Zerodha_Integration.get_historical_data(instrument_token)
 
-            # Extracting all date and close price pairs from historical data
             date_values = historical_data['date'][:10]  # Assuming you want the first 10 dates
             close_prices = historical_data['close'][:10]  # Assuming you want the first 10 close prices
 
-            # Update the dictionary
             info = {}
             for idx in range(10):
-                if idx < len(date_values) and idx < len(close_prices):
-                    # Get the date and close price
-                    date_value = date_values.iloc[idx]
-                    close_price = close_prices.iloc[idx]
-                    nfo_trading_symbol_value = df[df["Trading Symbol"] == symbol]["NFO Trading Symbol"].iloc[0]
-                    cesymname, pesymname = ATM_CE_AND_PE_COMBIMED_10day_ver(close_price, nfo_trading_symbol_value)
-                    ce_row = pf[pf['tradingsymbol'] == cesymname]
-                    pe_row = pf[pf['tradingsymbol'] == pesymname]
-                    ce_close_price = Zerodha_Integration.get_historical_data_combined(ce_row.iloc[0]['instrument_token'], date_value)
-                    pe_close_price = Zerodha_Integration.get_historical_data_combined(pe_row.iloc[0]['instrument_token'], date_value)
-                    if ce_close_price is not None and pe_close_price is not None:
-                        premium_combined = ce_close_price + pe_close_price
-                    else:
-                        premium_combined = None
-                    # Calculate premium_combined
-                    info[date_value] = {
-                        "close_price": close_price,
-                        "cesymname": cesymname,
-                        "pesymname": pesymname,
-                        "ce_instrument_token": ce_row.iloc[0]['instrument_token'] if not ce_row.empty else None,
-                        "pe_instrument_token": pe_row.iloc[0]['instrument_token'] if not pe_row.empty else None,
-                        "cecloseprice": ce_close_price,
-                        "peprice": pe_close_price,
-                        "premium_combined": premium_combined
+                try:
+                    if idx < len(date_values) and idx < len(close_prices):
+                        # Get the date and close price
+                        date_value = date_values.iloc[idx]
+                        close_price = close_prices.iloc[idx]
+                        nfo_trading_symbol_value = df[df["Trading Symbol"] == symbol]["NFO Trading Symbol"].iloc[0]
+                        cesymname, pesymname = ATM_CE_AND_PE_COMBIMED_10day_ver(close_price, nfo_trading_symbol_value)
+                        ce_row = pf[pf['tradingsymbol'] == cesymname]
+                        pe_row = pf[pf['tradingsymbol'] == pesymname]
+                        ce_close_price = Zerodha_Integration.get_historical_data_combined(
+                            ce_row.iloc[0]['instrument_token'], date_value)
+                        pe_close_price = Zerodha_Integration.get_historical_data_combined(
+                            pe_row.iloc[0]['instrument_token'], date_value)
+                        if ce_close_price is not None and pe_close_price is not None:
+                            premium_combined = ce_close_price + pe_close_price
+                        else:
+                            premium_combined = None
+                        # Calculate premium_combined
+                        info[date_value] = {
+                            "close_price": close_price,
+                            "cesymname": cesymname,
+                            "pesymname": pesymname,
+                            "ce_instrument_token": ce_row.iloc[0]['instrument_token'] if not ce_row.empty else None,
+                            "pe_instrument_token": pe_row.iloc[0]['instrument_token'] if not pe_row.empty else None,
+                            "cecloseprice": ce_close_price,
+                            "peprice": pe_close_price,
+                            "premium_combined": premium_combined
+                        }
+                except IndexError:
+                    exc_type, exc_value, exc_traceback = sys.exc_info()
+                    print("*** Traceback ***")
+                    traceback.print_tb(exc_traceback)
+                    info[date_value] = {"premium_combined": "NA"}
+                    continue
 
-                    }
-                else:
-                    break
+            # Store data in 'trading_symbols_dict'
             trading_symbols_dict[symbol] = {
                 "instrument_token": instrument_token,
                 "monthlyexp": monthlyexp,
                 "symbol": nfo_trading_symbol_value,
                 "info": info,
-
             }
 
     columns = list(trading_symbols_dict.keys())
@@ -171,16 +176,21 @@ def get_atm_combined_10_days():
     data = []
 
     for symbol in columns:
-        row = [trading_symbols_dict[symbol]["info"][date]["premium_combined"] for date in date_columns]
+        row = []
+        for date in date_columns:
+            try:
+                premium_combined = trading_symbols_dict[symbol]["info"][date]["premium_combined"]
+            except KeyError:
+                premium_combined = None
+            row.append(premium_combined)
         data.append(row)
 
     df = pd.DataFrame(data, columns=date_columns, index=columns)
 
-    # Pivot the DataFrame
     df = df.T.reset_index()
-    df.columns.name = None  # Remove the columns' name
-    df = df.rename(columns={'index': 'Date'})  # Rename 'index' to 'Date'
-    # Save to CSV
+    df.columns.name = None
+    df = df.rename(columns={'index': 'Date'})
+
     df.to_csv("premium_combined_pivoted_data.csv", index=False)
     data_formating()
 
